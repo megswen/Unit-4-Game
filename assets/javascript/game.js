@@ -1,18 +1,11 @@
 // Create an array that will hold the random numbers the computer will choose between 30-50
-var randomNumbers = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55];
-
-// Create variables that will hold the number of wins and losses
-var wins = 0;
-var losses = 0;
+var randomNumber = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55];
 
 // Create arrays that will hold random numbers for the crystals between 1-12
-var crystalNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-// Create a variable that will hold the user's sum
-// var userSum = 0;
+var crystalNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Create a variable that will make the computer choose a random number from the randomNumbers array
-var computerNumber = randomNumbers[Math.floor(Math.random() * randomNumbers.length)];
+var computerNumber = randomNumber[Math.floor(Math.random() * randomNumber.length)];
     // Display it in the randomnumber-text div
     $("#randomnumber-text").text(computerNumber);
 
@@ -22,45 +15,60 @@ var secondCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbe
 var thirdCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbers.length)];
 var fourthCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbers.length)];
 
+// Create a variable that will hold the user's sum
+var userSum = 0;
+$("#usersum-text").text(userSum);
 
-// Create a function that will run whenever the user clicks on a crystal and put the number in the usersum-text div
-$("#crystal1").click(function() {
-$("#usersum-text").text(firstCrystalNumber);
-});
+// Create cariables that hold wins and losses
+var wins = 0;
+var losses = 0;
 
-$("#crystal2").click(function() {
-$("#usersum-text").text(secondCrystalNumber);
-});
+//Reset game function
+function reset() {
+    userSum = 0;
+    $('#usersum-text').text(userSum);
+    computerNumber = randomNumber[Math.floor(Math.random() * randomNumber.length)];
+    firstCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbers.length)];
+    secondCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbers.length)];
+    thirdCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbers.length)];
+    fourthCrystalNumber = crystalNumbers[Math.floor(Math.random() * crystalNumbers.length)];
+}
 
-$("#crystal3").click(function() {
-$("#usersum-text").text(thirdCrystalNumber);
-});
+$(document).ready(function(){
 
-$("#crystal4").click(function() {
-$("#usersum-text").text(fourthCrystalNumber);
-});
+    // Create four functions (one for each crystal) that will run whenever the user clicks on a crystal and adds the numbers in the usersum-text div
+    $('#crystal1').click(() => {
+        userSum = userSum + firstCrystalNumber;
+        $('#usersum-text').text(userSum);
+    });
 
-// var userSum = 0;
-// $("#crystal1 #crystal2 #crystal3 #crystal4").click(function(){
-    // userSum = Number(userSum) + Number($(this).val());
-    // $("#usersum-text").text(userSum);        
- // });
- // $("#usersum-text").text(userSum);
+    $('#crystal2').click(() => {
+        userSum = userSum + secondCrystalNumber;
+        $('#usersum-text').text(userSum);
+    });
 
-// Add the crystal numbers to the user sum div as many times as they are clicked
+    $('#crystal3').click(() => {
+        userSum = userSum + thirdCrystalNumber;
+        $('#usersum-text').text(userSum);
+    });
 
-    // Make the computer choose a random number between 30-50
+    $('#crystal4').click(() => {
+        userSum = userSum + fourthCrystalNumber;
+        $('#usersum-text').text(userSum);
+    });
 
-    // Assign each crystal a random number between 1-12
+    //If elwe statement that will increase wins if the user matches the random number and increases losses when the user goes above the random number
+    if (userSum === computerNumber) {
+        {wins++};
+        alert("You won!");
+        reset();
+    } else if (userSum > computerNumber) {
+        {losses++};
+        alert("You lost!");
+        reset();
+    } 
 
-    // Add up the clicked crystal's numbers and put them in the user sum div
-
-    // Create an if else statment that says if the user sum equals the computer's number, the user wins.
-
-        //If the user sum is greater than the computer's number, the user loses.
-
-        //If the user wins or loses, the wins or losses goes up one point, the computer picks a new random number, the crystals are assigned a new number, and the user sum resets to zero
-
-        //If anything else, nothing happens and the game keeps going
-
-
+    // Move wins and losses to html
+    $("#wins-text").text("Your wins: " + wins);
+    $("#losses-text").text("Your losses: " + losses);
+})
