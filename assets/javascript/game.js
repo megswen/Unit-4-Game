@@ -59,11 +59,11 @@ $(document).ready(function(){
 
     //If elwe statement that will increase wins if the user matches the random number and increases losses when the user goes above the random number
     if (userSum === computerNumber) {
-        {wins++};
+        wins++;
         alert("You won!");
         reset();
     } else if (userSum > computerNumber) {
-        {losses++};
+        losses++;
         alert("You lost!");
         reset();
     } 
