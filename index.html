@@ -11,31 +11,42 @@
 </head>
 
 <body>
-    <header>
-        <h1>Crystal Collector</h1>
-        <h2>Each crystal will give you a number when clicked. Click on the crystals to add up their numbers. Your goal is to get a sum equal to the Number to Match given below.</h2>
-    </header>
+    <div class="main">
+        <header>
+            <h1>Crystal Collector</h1>
+            <h2>Hey Franz! 
+                <br>Each crystal will give you a number when it's clicked. Click on the crystals to add up their numbers. 
+                <br>Your goal is to get a sum equal to the Number to Match given below.</h2>
+        </header>
 
-    <div class="randomnumber-box">Number to Match:
-        <br>
-        <p id="randomnumber-text"></p>
-    </div>
+        <div class="randomnumber-box">Number to Match:
+            <br>
+            <p id="randomnumber-text"></p>
+        </div>
 
-    <div class="crystal-box">
-        <div class="crystal" id="crystal1">Crystal 1</div>
-        <div class="crystal" id="crystal2">Crystal 2</div>
-        <div class="crystal" id="crystal3">Crystal 3</div>
-        <div class="crystal" id="crystal4">Crystal 4</div>
-    </div>
+        <div class="crystal-box">
+            <div class="image-wrapper" id="crystal1">
+                <img src="assets/images/Garnet.png" width="120px" alt="image">
+            </div>
+            <div class="image-wrapper" id="crystal2">
+                <img src="assets/images/Image_Modifier-SilkyJewel.png" width="100px" alt="image">
+            </div>
+            <div class="image-wrapper" id="crystal3">
+                <img src="assets/images/New_EmeraldB.png" width="120px" alt="image">
+            </div>
+            <div class="image-wrapper" id="crystal4">
+                <img src="assets/images/196.png" width="100px" alt="image">
+            </div>
+        </div>
 
-    <div class="usersum-box">Your Current Number:
-        <br>
-        <div id="usersum-text"></div>
-    </div>
+        <div class="usersum-box">Your Current Number:
+            <br>
+            <div id="usersum-text"></div>
+        </div>
 
-    <div class="wins-losses">
         <div id="wins-text"></div>
         <div id="losses-text"></div>
+
     </div>
 
 <!--Adding jQuery-->
