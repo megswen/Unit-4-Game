@@ -35,6 +35,14 @@ h2 {
     font-family: 'PT Sans Caption', sans-serif;
 }
 
+h3 {
+    font-size: 10px;
+    font-family: 'PT Sans Caption', sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+}
+
 .randomnumber-box {
     background-color: white;
     color: black;
